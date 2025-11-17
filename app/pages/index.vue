@@ -47,23 +47,35 @@ const isCollapse = ref(true);
       <template #default="{ collapsed }">
         <UButton
           v-bind="{
-            avatar: {
-              src: Store.auth.auth?.company?.logo,
-              alt: Store.auth.auth?.company?.name,
-            },
             label: collapsed ? undefined : Store.auth.auth?.company?.name,
             trailingIcon: collapsed ? undefined : 'i-lucide-chevrons-up-down',
           }"
           color="neutral"
           :variant="collapsed ? 'ghost' : 'outline'"
-          size="xl"
+          :size="'xl'"
           block
           :square="collapsed"
           class="data-[state=open]:bg-elevated"
           :ui="{
             trailingIcon: 'text-dimmed rounded',
           }"
-        />
+        >
+          <template #leading>
+            <UAvatar
+              class="rounded-lg"
+              :src="
+                Store.auth.auth?.company?.logo
+                  ? Store.auth.auth?.company?.logo
+                  : undefined
+              "
+              :alt="
+                Store.auth.auth?.company?.name
+                  ? Store.auth.auth?.company?.name
+                  : undefined
+              "
+            />
+          </template>
+        </UButton>
 
         <UNavigationMenu
           :collapsed="collapsed"
