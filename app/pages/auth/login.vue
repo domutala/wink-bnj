@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import * as v from "valibot";
 import type { FormSubmitEvent, AuthFormField } from "@nuxt/ui";
-import type { UserProps } from "@nuxt/ui";
 
 const toast = useToast();
 const submiting = ref(false);
@@ -17,7 +16,7 @@ const fields: AuthFormField[] = [
   {
     name: "password",
     type: "password",
-    label: $i18n.t("login.items.Password"),
+    label: $i18n.t("login.items.password"),
     required: true,
   },
 ];
@@ -204,7 +203,7 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
     </div>
 
     <div class="lg:w-6/12 w-full sticky top-0">
-      <UPageCard variant="ghost" class="w-full max-w-md mx-auto mt-16">
+      <UPageCard variant="ghost" class="w-full max-w-md mx-auto mt-36">
         <UAuthForm
           :schema="schema"
           :title="$t('login.title')"
