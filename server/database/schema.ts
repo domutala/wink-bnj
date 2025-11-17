@@ -35,3 +35,6 @@ export const auth = pgTable("auth", {
   createdAt: timestamp().defaultNow().notNull(),
   userId: uuid("userId").references(() => user.id),
 });
+
+export type User = typeof tables.user.$inferSelect;
+export type Company = typeof tables.company.$inferSelect;

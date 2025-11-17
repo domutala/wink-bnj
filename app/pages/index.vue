@@ -39,11 +39,32 @@ const isCollapse = ref(true);
     <UDashboardSidebar
       collapsible
       v-model:collapsed="isCollapse"
+      :default-size="20"
       :ui="{ footer: 'border-t border-default' }"
     >
       <template #header="{ collapsed }"> </template>
 
       <template #default="{ collapsed }">
+        <UButton
+          v-bind="{
+            avatar: {
+              src: Store.auth.auth?.company?.logo,
+              alt: Store.auth.auth?.company?.name,
+            },
+            label: collapsed ? undefined : Store.auth.auth?.company?.name,
+            trailingIcon: collapsed ? undefined : 'i-lucide-chevrons-up-down',
+          }"
+          color="neutral"
+          :variant="collapsed ? 'ghost' : 'outline'"
+          size="xl"
+          block
+          :square="collapsed"
+          class="data-[state=open]:bg-elevated"
+          :ui="{
+            trailingIcon: 'text-dimmed rounded',
+          }"
+        />
+
         <UNavigationMenu
           :collapsed="collapsed"
           :items="navbarItems[0]"
@@ -87,7 +108,7 @@ const isCollapse = ref(true);
       </template>
 
       <template #body>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+        {{}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
         accusantium reprehenderit assumenda temporibus. Accusantium eius
         repellendus, sed esse ratione asperiores ab laudantium rem libero in,
         necessitatibus perspiciatis dolores, quisquam quod?

@@ -7,35 +7,11 @@ defineProps<{
   collapsed?: boolean;
 }>();
 
-const colorMode = useColorMode();
-const appConfig = useAppConfig();
-
-const colors = [
-  "red",
-  "orange",
-  "amber",
-  "yellow",
-  "lime",
-  "green",
-  "emerald",
-  "teal",
-  "cyan",
-  "sky",
-  "blue",
-  "indigo",
-  "violet",
-  "purple",
-  "fuchsia",
-  "pink",
-  "rose",
-];
-const neutrals = ["slate", "gray", "zinc", "neutral", "stone"];
-
 const user = ref({
   name: `${Store.auth.auth?.user.firstName} ${Store.auth.auth?.user.lastName}`,
   avatar: {
-    src: "https://github.com/benjamincanac.png",
-    alt: "Benjamin Canac",
+    src: Store.auth.auth?.user.avatar,
+    alt: `${Store.auth.auth?.user.firstName} ${Store.auth.auth?.user.lastName}`,
   },
 });
 
@@ -59,17 +35,10 @@ const items = computed<DropdownMenuItem[][]>(() => [
     {
       label: "Settings",
       icon: "i-lucide-settings",
-      //   to: "/settings",
     },
   ],
   [...getThemeItems(), getLangItems()],
   [
-    // {
-    //   label: "Documentation",
-    //   icon: "i-lucide-book-open",
-    //   to: "https://ui.nuxt.com/docs/getting-started/installation/nuxt",
-    //   target: "_blank",
-    // },
     {
       label: "GitHub repository",
       icon: "i-simple-icons-github",

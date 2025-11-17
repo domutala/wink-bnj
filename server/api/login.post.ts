@@ -13,22 +13,33 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const [existingUser] = await dataSource
+  const existingUser = await dataSource
     .select()
     .from(tables.user)
+    .leftJoin(tables.company, eq(tables.company.id, tables.user.companyId))
     .where(eq(tables.user.email, body.email));
 
-  if (!existingUser || !existingUser.password) {
+  if (!existingUser || !existingUser.length || !existingUser[0].user.password) {
     throw createError({
       statusCode: 401,
       statusMessage: "login.errors.invalidCredentials",
     });
   }
 
-  // 🔑 Vérification du mot de passe
+  const user = existingUser[0].user;
+  const company = existingUser[0].company;
+
+  if (!user.password) {
+    throw createError({
+      statusCode: 401,
+      statusMessage: "login.errors.invalidCredentials",
+    });
+  }
+
+  // Vérification du mot de passe
   const passwordMatch = await bcrypt.compare(
     body.password + runtime.passwordPepper,
-    existingUser.password
+    user.password
   );
   if (!passwordMatch) {
     throw createError({
@@ -39,11 +50,12 @@ export default defineEventHandler(async (event) => {
 
   const auth = await dataSource
     .insert(tables.auth)
-    .values({ userId: existingUser.id })
+    .values({ userId: user.id })
     .returning({ id: tables.auth.id });
 
   return {
-    user: existingUser,
     token: auth[0].id,
+    user,
+    company,
   };
 });

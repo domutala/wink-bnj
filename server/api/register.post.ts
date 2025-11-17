@@ -29,6 +29,28 @@ export default defineEventHandler(async (event) => {
     });
   }
 
+  if (body.avatar) {
+    const avatar = body.avatar;
+    const key = `uploads/${Date.now()}-${avatar.filename}`;
+    await uploadToR2(
+      key,
+      Buffer.from(avatar.data),
+      avatar.type ?? "application/octet-stream"
+    );
+    body.avatar = `${runtime.cloudflareEndpoint}/${runtime.cloudflareBucketName}/${key}`;
+  }
+
+  if (body.logo) {
+    const logo = body.logo;
+    const key = `uploads/${Date.now()}-${logo.filename}`;
+    await uploadToR2(
+      key,
+      Buffer.from(logo.data),
+      logo.type ?? "application/octet-stream"
+    );
+    body.logo = `${runtime.cloudflareEndpoint}/${runtime.cloudflareBucketName}/${key}`;
+  }
+
   const company = await dataSource
     .insert(tables.company)
     .values(body as any)

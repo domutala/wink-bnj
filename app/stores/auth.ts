@@ -1,9 +1,9 @@
-export type User = typeof tables.user.$inferSelect;
+import type { User, Company } from "@@/server/database/schema";
 
 const store = defineStore(
   "auth",
   () => {
-    const auth = ref<{ token: string; user: User }>();
+    const auth = ref<{ token: string; user: User; company: Company }>();
 
     async function login(email: string, password: string) {
       const toast = useToast();
@@ -18,6 +18,7 @@ const store = defineStore(
         auth.value = {
           token: res.token,
           user: res.user as any,
+          company: res.company as any,
         };
       } catch (error: any) {
         let message = "login.errors.global";

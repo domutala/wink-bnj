@@ -16,6 +16,12 @@ export default defineNuxtConfig({
     databaseUrl: "",
     passwordPepper: "",
 
+    cloudflareAccountId: "",
+    cloudflareBucketName: "",
+    cloudflareSecretAccessKey: "",
+    cloudflareAccessKeyId: "",
+    cloudflareEndpoint: "",
+
     public: {},
   },
 
