@@ -69,11 +69,12 @@ const head = useLocaleHead({
           >
             <UButton
               icon="i-lucide-swatch-book"
-              color="neutral"
+              color="primary"
               variant="soft"
               size="xl"
               square
               aria-label="Color picker"
+              class="cursor-pointer"
             />
 
             <template #chip-leading="{ item }">
