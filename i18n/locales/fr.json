@@ -32,6 +32,10 @@
   "register": {
     "goback": "Retour",
 
+    "login": {
+      "btn": "Se connecter"
+    },
+
     "success": {
       "title": "Compte créé avec succès ! Bienvenue sur Wink 🎉",
       "description": "Gérez vos recrutements efficacement et commencez à trouver les meilleurs talents dès maintenant."

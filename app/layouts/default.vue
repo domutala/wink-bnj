@@ -1,4 +1,5 @@
 <script setup>
+import { getLangItems } from "~/tools/lang";
 import { getThemeItems } from "~/tools/theme";
 
 // useHead({
@@ -54,7 +55,7 @@ const head = useLocaleHead({
         <div v-if="!Store.auth.auth" class="fixed bottom-10 left-10 z-50">
           <UDropdownMenu
             :items="[
-              getThemeItems(),
+              [...getThemeItems(), getLangItems()],
               [
                 {
                   label: 'GitHub repository',

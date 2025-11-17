@@ -54,69 +54,96 @@ async function submit() {
 </script>
 
 <template>
-  <UPage>
-    <UContainer class="my-16">
-      <UPageCard class="col-span-12" variant="subtle">
-        <WkStepper
-          class="my-5"
-          :active="step"
-          :steps="[
-            { title: $t('register.one.title') },
-            { title: $t('register.two.title') },
-            { title: $t('register.three.title') },
-          ]"
-        />
-
-        <UPageGrid class="lg:grid-cols-2">
-          <UPageCard
-            class="col-span-3 md:col-span-1 lg:col-span-1"
-            variant="ghost"
-            :ui="{ container: 'gap-y-0' }"
-          >
-            <div v-if="step > 0">
-              <UButton
-                size="sm"
-                color="neutral"
-                variant="ghost"
-                icon="i-lucide-chevron-left"
-                class="cursor-pointer px-0"
-                @click="step--"
-              >
-                {{ $t("register.goback") }}
-              </UButton>
+  <UDashboardGroup>
+    <UDashboardPanel>
+      <template #header>
+        <UDashboardNavbar>
+          <template #leading>
+            <div class="flex lg:hidden">
+              <wk-logo class="h-6" />
             </div>
+          </template>
 
-            <WkRegisterOne
-              v-if="step === 0"
-              :base="data"
-              @submit="
-                (v) => {
-                  data = { ...data, ...v };
-                  step = 1;
-                }
-              "
+          <template #default>
+            <wk-logo class="h-10" />
+          </template>
+
+          <template #right>
+            <ULink
+              :to="$localePath({ name: 'auth-login' })"
+              class="text-primary font-medium"
+            >
+              {{ $t("register.login.btn") }}
+            </ULink>
+          </template>
+        </UDashboardNavbar>
+      </template>
+
+      <template #body>
+        <UContainer class="my-">
+          <UPageCard class="col-span-12" variant="subtle">
+            <WkStepper
+              class="my-5"
+              :active="step"
+              :steps="[
+                { title: $t('register.one.title') },
+                { title: $t('register.two.title') },
+                { title: $t('register.three.title') },
+              ]"
             />
-            <WkRegisterTwo
-              v-else
-              :base="data"
-              @back="step = 0"
-              @submit="
-                (v) => {
-                  data = { ...data, ...v };
-                  submit();
-                }
-              "
-            />
+
+            <UPageGrid class="lg:grid-cols-2">
+              <UPageCard
+                class="col-span-3 md:col-span-2 lg:col-span-1"
+                variant="ghost"
+                :ui="{ container: 'gap-y-0' }"
+              >
+                <div v-if="step > 0">
+                  <UButton
+                    size="sm"
+                    color="neutral"
+                    variant="ghost"
+                    icon="i-lucide-chevron-left"
+                    class="cursor-pointer px-0"
+                    @click="step--"
+                  >
+                    {{ $t("register.goback") }}
+                  </UButton>
+                </div>
+
+                <WkRegisterOne
+                  v-if="step === 0"
+                  :base="data"
+                  @submit="
+                    (v) => {
+                      data = { ...data, ...v };
+                      step = 1;
+                    }
+                  "
+                />
+                <WkRegisterTwo
+                  v-else
+                  :base="data"
+                  @back="step = 0"
+                  @submit="
+                    (v) => {
+                      data = { ...data, ...v };
+                      submit();
+                    }
+                  "
+                />
+              </UPageCard>
+            </UPageGrid>
           </UPageCard>
-        </UPageGrid>
-      </UPageCard>
-    </UContainer>
+        </UContainer>
 
-    <div
-      v-if="submiting"
-      class="fixed inset-0 bg-default/50 flex items-center justify-center"
-    >
-      <UProgress class="w-[120px]" />
-    </div>
-  </UPage>
+        <div
+          v-if="submiting"
+          class="fixed inset-0 bg-default/50 flex items-center justify-center"
+        >
+          <UProgress class="w-[120px]" />
+        </div>
+      </template>
+    </UDashboardPanel>
+  </UDashboardGroup>
 </template>

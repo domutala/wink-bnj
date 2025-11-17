@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { DropdownMenuItem } from "@nuxt/ui";
+import { getLangItems } from "~/tools/lang";
 import { getThemeItems } from "~/tools/theme";
 
 defineProps<{
@@ -61,7 +62,7 @@ const items = computed<DropdownMenuItem[][]>(() => [
       //   to: "/settings",
     },
   ],
-  getThemeItems(),
+  [...getThemeItems(), getLangItems()],
   [
     // {
     //   label: "Documentation",
