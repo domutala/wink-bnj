@@ -1,6 +1,10 @@
 {
   "welcome": "Welcome",
 
+  "dashboard": {
+    "empty": "No job openings to post"
+  },
+
   "errors": {
     "fieldRequired": "This field is required",
     "invalidEmail": "Invalid email address"

@@ -127,10 +127,13 @@ const isCollapse = ref(true);
       </template>
 
       <template #body>
-        {{}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-        accusantium reprehenderit assumenda temporibus. Accusantium eius
-        repellendus, sed esse ratione asperiores ab laudantium rem libero in,
-        necessitatibus perspiciatis dolores, quisquam quod?
+        <UEmpty
+          variant="naked"
+          icon="i-mdi-inbox-multiple"
+          size="xl"
+          class="mt-20"
+          :description="$t('dashboard.empty')"
+        />
       </template>
     </UDashboardPanel>
   </UDashboardGroup>

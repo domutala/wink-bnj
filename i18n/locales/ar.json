@@ -1,6 +1,10 @@
 {
   "welcome": "مرحباً",
 
+  "dashboard": {
+    "empty": "لا توجد وظائف شاغرة"
+  },
+
   "errors": {
     "fieldRequired": "هذا الحقل مطلوب",
     "invalidEmail": "عنوان البريد الإلكتروني غير صالح"

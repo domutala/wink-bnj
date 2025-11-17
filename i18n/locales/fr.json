@@ -1,6 +1,10 @@
 {
   "welcome": "Bienvenue",
 
+  "dashboard": {
+    "empty": "Aucun recrutement à afficher"
+  },
+
   "errors": {
     "fieldRequired": "Ce champ est requis",
     "invalidEmail": "Adresse email invalide"

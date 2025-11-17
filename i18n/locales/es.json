@@ -1,6 +1,10 @@
 {
   "welcome": "Bienvenido",
 
+  "dashboard": {
+    "empty": "No hay ofertas de empleo que publicar"
+  },
+
   "errors": {
     "fieldRequired": "Este campo es obligatorio",
     "invalidEmail": "Correo electrónico inválido"
