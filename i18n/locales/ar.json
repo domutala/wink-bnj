@@ -1,0 +1,108 @@
+{
+  "welcome": "مرحبًا",
+
+  "errors": {
+    "fieldRequired": "هذا الحقل مطلوب",
+    "invalidEmail": "عنوان البريد الإلكتروني غير صالح"
+  },
+
+  "sectors": {
+    "agriculture": "الزراعة",
+    "food_industry": "الصناعة الغذائية",
+    "construction": "البناء",
+    "manufacturing": "التصنيع",
+    "energy": "الطاقة",
+    "it_technology": "تكنولوجيا المعلومات",
+    "telecommunications": "الاتصالات",
+    "finance_insurance": "المالية والتأمين",
+    "real_estate": "العقارات",
+    "wholesale_retail": "التجارة بالجملة والتجزئة",
+    "transport_logistics": "النقل والخدمات اللوجستية",
+    "hospitality_tourism": "الضيافة والسياحة",
+    "healthcare": "الرعاية الصحية",
+    "education": "التعليم",
+    "public_administration": "الإدارة العامة",
+    "research_development": "البحث والتطوير",
+    "arts_entertainment": "الفنون والثقافة والترفيه",
+    "environment": "البيئة",
+    "non_profit": "المنظمات غير الربحية",
+    "consulting_services": "الاستشارات وخدمات الأعمال"
+  },
+
+  "register": {
+    "goback": "العودة",
+
+    "one": {
+      "title": "لنتعرف عليك",
+      "submit": "متابعة",
+      "items": {
+        "email": "البريد الإلكتروني",
+        "firstName": "الاسم الأول",
+        "lastName": "اسم العائلة",
+        "avatar": {
+          "label": "صورة الملف الشخصي",
+          "add": "إضافة صورة",
+          "update": "تعديل الصورة",
+          "remove": "حذف",
+          "info": "بصيغة *.png أو *.jpeg كحد أقصى 5 ميغابايت",
+
+          "errors": {
+            "type": "يرجى اختيار ملف بصيغة JPEG أو PNG.",
+            "size": "تم تجاوز الحجم المسموح. الحد الأقصى 5 ميغابايت"
+          }
+        }
+      }
+    },
+
+    "two": {
+      "title": "أنشئ مساحتك",
+      "submit": "متابعة",
+      "items": {
+        "name": {
+          "label": "اسم الشركة",
+          "placeholder": "أدخل اسم شركتك"
+        },
+
+        "description": {
+          "label": "وصف الشركة",
+          "placeholder": "صف شركتك باختصار:\n * التاريخ والأرقام الرئيسية\n  * المنتجات أو الخدمات\n  * الثقافة والقيم"
+        },
+
+        "website": {
+          "label": "الموقع الإلكتروني",
+          "placeholder": "your-company.com",
+          "errors": {
+            "type": "عنوان URL غير صالح"
+          }
+        },
+
+        "address": {
+          "label": "عنوان المقر الرئيسي",
+          "placeholder": "أدخل عنوان الشركة"
+        },
+
+        "sector": {
+          "label": "قطاع النشاط",
+          "placeholder": "حدد قطاع نشاط شركتك"
+        },
+
+        "logo": {
+          "label": "شعار الشركة",
+          "add": "إضافة صورة",
+          "update": "تعديل الصورة",
+          "remove": "حذف",
+          "info": "بصيغة *.png أو *.jpeg",
+
+          "errors": {
+            "type": "يرجى اختيار ملف بصيغة JPEG أو PNG.",
+            "size": "تم تجاوز الحجم المسموح. الحد الأقصى 5 ميغابايت"
+          }
+        }
+      }
+    },
+
+    "three": {
+      "title": "لنتعرف إليك أكثر"
+    }
+  }
+}
