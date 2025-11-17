@@ -1,52 +1,32 @@
 <script setup lang="ts">
-import type { TabsItem } from "@nuxt/ui";
 import type { NavigationMenuItem } from "@nuxt/ui";
 
 const navbarItems: NavigationMenuItem[][] = [
   [
     {
       label: "Home",
-      icon: "i-lucide-house",
+      icon: "i-fluent-layout-column-two-split-right-16-regular",
       active: true,
     },
     {
+      label: "Jobs",
+      icon: "i-material-symbols-work-outline",
+    },
+    {
       label: "Inbox",
-      icon: "i-lucide-inbox",
+      icon: "i-lucide-mail",
       badge: "4",
     },
+
     {
-      label: "Contacts",
+      label: "Users",
       icon: "i-lucide-users",
-    },
-    {
-      label: "Settings",
-      icon: "i-lucide-settings",
-      defaultOpen: true,
-      children: [
-        {
-          label: "General",
-        },
-        {
-          label: "Members",
-        },
-        {
-          label: "Notifications",
-        },
-      ],
     },
   ],
   [
     {
-      label: "Feedback",
-      icon: "i-lucide-message-circle",
-      to: "https://github.com/nuxt-ui-templates/dashboard",
-      target: "_blank",
-    },
-    {
-      label: "Help & Support",
-      icon: "i-lucide-info",
-      to: "https://github.com/nuxt/ui",
-      target: "_blank",
+      label: "Add user",
+      icon: "i-lucide-user-round-plus",
     },
   ],
 ];
@@ -88,12 +68,29 @@ const isCollapse = ref(true);
             <UDashboardSidebarCollapse />
           </template>
 
-          <template #right> </template>
+          <template #right>
+            <UButton
+              size="lg"
+              color="neutral"
+              variant="ghost"
+              icon="i-lucide-bell"
+            ></UButton>
+
+            <UButton
+              size="lg"
+              color="neutral"
+              variant="ghost"
+              icon="i-lucide-circle-question-mark"
+            ></UButton>
+          </template>
         </UDashboardNavbar>
       </template>
 
       <template #body>
-        <Placeholder class="h-full" />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+        accusantium reprehenderit assumenda temporibus. Accusantium eius
+        repellendus, sed esse ratione asperiores ab laudantium rem libero in,
+        necessitatibus perspiciatis dolores, quisquam quod?
       </template>
     </UDashboardPanel>
   </UDashboardGroup>
