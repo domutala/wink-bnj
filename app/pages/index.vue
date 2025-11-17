@@ -113,6 +113,13 @@ const isCollapse = ref(true);
               size="lg"
               color="neutral"
               variant="ghost"
+              icon="i-octicon-megaphone-24"
+            ></UButton>
+
+            <UButton
+              size="lg"
+              color="neutral"
+              variant="ghost"
               icon="i-lucide-circle-question-mark"
             ></UButton>
           </template>
